@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  type: 'local',
+  titleName:'(Local) Angular-Laravel',
+  baseApi: 'http://localhost/angular-laravel-app/server/public/api',
+  base: 'http://localhost/angular-laravel-app/server/public/',
+  canvas: {
+    redirect_uri: 'http://localhost:4200/canvas',
+    client_id: '157510000000000113',
+    canvas_url: 'https://digitalskills.test.instructure.com/'
+  }
 };
 
 /*

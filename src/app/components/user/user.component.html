@@ -1,0 +1,124 @@
+<div class="container">
+  <div *ngIf="loading">
+  <div class="container d-flex h-100 w-100">
+      <div class="row justify-content-center align-self-center"
+          style="margin:auto;">
+          <i class="pi pi-spin pi-spinner"
+              style="font-size: 5em"></i>
+      </div>
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <th scope="row">1</th>
+      <td>{{user.name}}</td>
+      <td>{{user.email}}</td>
+      <td>
+        <button
+            type="button"
+            icon="pi pi-trash"
+            class="btn btn-primary"
+            (click)="edit(user)"
+            >
+            <i class="fas fa-edit"></i>
+          </button>
+        </td>
+      <td>
+      <button
+          type="button"
+          icon="pi pi-trash"
+          class="btn btn-warning"
+          (click)="delete(user)"
+          >
+          <i class="fas fa-trash-alt"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button pButton type="button"
+label="Add"
+class="p-button-success"
+(click)="add()"
+>
+</button>
+</div>
+
+<p-dialog header="Title" [(visible)]="displayDialogEdit">
+
+  <form #myForm="ngForm" (ngSubmit)="onSubmitEdit(myForm)">
+    <p>
+        <label>Name:</label>
+        <input type="text"
+         name="name"
+        [(ngModel)]="userToEdit.name">
+    </p>
+
+    <p>
+      <label>Email:</label>
+      <input type="text"
+      name="email"
+      [(ngModel)]="userToEdit.email"
+      >
+  </p>
+    <p>
+        <label>Password:</label>
+        <input type="password"
+        name="password"
+        [(ngModel)]="userToEdit.password">
+    </p>
+    <p>
+        <button type="submit" [disabled]="!myForm.valid" class="p-button-primary">Save</button>
+    </p>
+</form>
+</p-dialog>
+
+
+<p-dialog header="Title" [(visible)]="displayDialogAdd">
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <p>
+      <label>Name:</label>
+      <input type="text" name="name"
+          formControlName="name"
+          [ngClass]="{'invalid': getControl.name.touched && getControl.name.invalid}"
+          >
+  </p>
+  <p>
+      <label>Email:</label>
+      <input type="email" name="email"
+      formControlName="email"
+      [ngClass]="{'invalid': getControl.email.touched && getControl.email.invalid}">
+  </p>
+  <div *ngIf = "getControl.email.touched && getControl.email.invalid">
+    <span *ngIf="getControl.email.errors?.required" class="text-danger">Email is required</span>
+    <span *ngIf="getControl.email.errors?.email" class="text-danger">Email is not valid</span>
+</div>
+
+  <p>
+    <label>Password:</label>
+    <input type="password" name="password"
+    formControlName="password"
+    [ngClass]="{'invalid': getControl.password.touched && getControl.password.invalid}">
+</p>
+<div *ngIf = "getControl.password.touched && getControl.password.invalid">
+  <span *ngIf="getControl.password.errors?.required" class="text-danger">Password is required</span>
+  <span *ngIf="getControl.password.errors?.password" class="text-danger">Must more than 4 characters</span>
+</div>
+
+  <p>
+      <button type="submit" [disabled]="form.invalid" class="p-button-success">Submit</button>
+  </p>
+</form>
+</p-dialog>
