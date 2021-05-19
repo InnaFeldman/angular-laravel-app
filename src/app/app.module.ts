@@ -13,6 +13,8 @@ import { UserComponent } from './components/user/user.component';
 import {DynamicDialogModule} from 'primeng/dynamicdialog';
 import { ButtonModule } from 'primeng/button';
 import {DialogModule} from 'primeng/dialog';
+import { CanvasComponent } from './components/canvas/canvas.component';
+import { BreadcrubComponent } from './components/breadcrub/breadcrub.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import {DialogModule} from 'primeng/dialog';
     AppComponent,
     EmployeesComponent,
     NavbarComponent,
-    UserComponent
+    UserComponent,
+    CanvasComponent,
+    BreadcrubComponent
   ],
   imports: [
     BrowserModule,

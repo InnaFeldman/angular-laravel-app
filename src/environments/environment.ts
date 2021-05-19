@@ -10,7 +10,7 @@ export const environment = {
   base: 'http://localhost/angular-laravel-app/server/public/',
   canvas: {
     redirect_uri: 'http://localhost:4200/canvas',
-    client_id: '157510000000000113',
+    client_id: '157510000000000146',
     canvas_url: 'https://digitalskills.test.instructure.com/'
   }
 };
