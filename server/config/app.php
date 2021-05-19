@@ -121,6 +121,12 @@ return [
 
     'key' => env('APP_KEY'),
 
+    'canvas_client_id' => env('CANVAS_CLIENT_ID', null),
+
+    'canvas_secret' => env('CANVAS_SECRET', null),
+
+    'canvas_host' => env('CANVAS_HOST', null),
+
     'cipher' => 'AES-256-CBC',
 
     /*
