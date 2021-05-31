@@ -24,4 +24,6 @@ Route::get('/tests', function () {
         'email' => Str::random(10).'@gmail.com',
         'password' => Hash::make('password'),
     ]);
+
+    dd(\Config::get('app.canvas_client_id'));
 });

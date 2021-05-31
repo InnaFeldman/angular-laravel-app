@@ -30,3 +30,4 @@ Route::delete('/employees/{id}', [EmployeeController::class, 'update']);
 
 
 Route::post('/canvas', [CanvasAPIController::class, 'getCode']);
+Route::post('/canvas', [CanvasAPIController::class, 'connectWithCode']);
