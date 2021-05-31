@@ -23,7 +23,7 @@ class ExampleTest extends TestCase
 
 
     public function test_users_route_return_something(){
-        $response = $this->get('/users');
+        $response = $this->get('api/users');
         //dd($response);
         $response->assertSeeText('Name', $escaped = true);
     }

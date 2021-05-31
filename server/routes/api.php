@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\CanvasAPIController;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\GenreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +34,8 @@ Route::delete('/employees/{id}', [EmployeeController::class, 'update']);
 
 Route::post('/canvas', [CanvasAPIController::class, 'getCode']);
 Route::post('/canvas', [CanvasAPIController::class, 'connectWithCode']);
+
+// Route::get('/books', [BookController::class, 'index']);
+Route::post('/books', [BookController::class, 'store']);
+// Route::put('/books/{id}', [BookController::class, 'update']);
+// Route::delete('/books/{id}', [BookController::class, 'delete']);
