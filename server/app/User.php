@@ -10,4 +10,8 @@ class User extends Model
 {
     use SoftDeletes;
     protected $fillable = ['name', 'email', 'password'];
+
+    public function getFullnameAttribute(){
+        return "$this->name";
+    }
 }

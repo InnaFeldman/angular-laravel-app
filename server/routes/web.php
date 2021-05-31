@@ -18,6 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/users', function () {
+    //return 'Users dgrgh';
+});
+
 Route::get('/tests', function () {
     DB::table('users')->insert([
         'name' => Str::random(10),
