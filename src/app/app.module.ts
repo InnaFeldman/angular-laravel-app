@@ -15,6 +15,7 @@ import { ButtonModule } from 'primeng/button';
 import {DialogModule} from 'primeng/dialog';
 import { CanvasComponent } from './components/canvas/canvas.component';
 import { BreadcrubComponent } from './components/breadcrub/breadcrub.component';
+import { BooksComponent } from './components/books/books.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { BreadcrubComponent } from './components/breadcrub/breadcrub.component';
     NavbarComponent,
     UserComponent,
     CanvasComponent,
-    BreadcrubComponent
+    BreadcrubComponent,
+    BooksComponent
   ],
   imports: [
     BrowserModule,

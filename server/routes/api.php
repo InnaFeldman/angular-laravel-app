@@ -35,7 +35,7 @@ Route::delete('/employees/{id}', [EmployeeController::class, 'update']);
 Route::post('/canvas', [CanvasAPIController::class, 'getCode']);
 Route::post('/canvas', [CanvasAPIController::class, 'connectWithCode']);
 
-// Route::get('/books', [BookController::class, 'index']);
+Route::get('/books', [BookController::class, 'index']);
 Route::post('/books', [BookController::class, 'store']);
 // Route::put('/books/{id}', [BookController::class, 'update']);
 // Route::delete('/books/{id}', [BookController::class, 'delete']);
