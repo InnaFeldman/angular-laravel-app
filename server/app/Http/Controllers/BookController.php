@@ -13,7 +13,7 @@ class BookController extends Controller
 
     public function index(Request $request) {
         //Using SQL:
-        // $books = DB::select('select * from books JOIN authors ON books.author_id = authors.id JOIN genres ON genres.id = books.genre_id');
+        //$books = DB::select('select * from books JOIN authors ON books.author_id = authors.id JOIN genres ON genres.id = books.genre_id');
 
         //Using Query Builder:
         // $books = DB::table('books')
@@ -31,13 +31,23 @@ class BookController extends Controller
 
     public function store(Request $request) {
 
-        $validate = $request->validate([
-            'title' => 'required|string|min:2|max:20',
-            // 'price' => 'required|numeric|min:1|max:200',
-            // 'author_id' => 'required|exists:authors,id',
-            // 'genre_id' => 'required|exists:genres,id'
-        ]);
-        $book = Book::create($validate);
-        return response()->json($book, 201);
+        // $validate = $request->validate([
+        //     'title' => 'required|string|min:2|max:20',
+        //     // 'price' => 'required|numeric|min:1|max:200',
+        //     // 'author_id' => 'required|exists:authors,id',
+        //     // 'genre_id' => 'required|exists:genres,id'
+        // ]);
+        // $book = Book::create($validate);
+        // return response()->json($book, 201);
     }
+
+    public function update (){
+
+    }
+
+    public function delete (){
+
+    }
+
+
 }

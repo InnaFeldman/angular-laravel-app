@@ -37,5 +37,10 @@ Route::post('/canvas', [CanvasAPIController::class, 'connectWithCode']);
 
 Route::get('/books', [BookController::class, 'index']);
 Route::post('/books', [BookController::class, 'store']);
-// Route::put('/books/{id}', [BookController::class, 'update']);
-// Route::delete('/books/{id}', [BookController::class, 'delete']);
+Route::put('/books/{id}', [BookController::class, 'update']);
+Route::delete('/books/{id}', [BookController::class, 'delete']);
+
+Route::get('/authors', [BookController::class, 'index']);
+Route::post('/authors', [BookController::class, 'store']);
+Route::put('/authors/{id}', [BookController::class, 'update']);
+Route::delete('/authors/{id}', [BookController::class, 'delete']);

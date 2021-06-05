@@ -44,7 +44,6 @@ export class UserComponent implements OnInit {
 
   add(){
     this.displayDialogAdd = true;
-    // this.userToCreate = {};
   }
 
 

@@ -1,0 +1,124 @@
+<app-breadcrub></app-breadcrub>
+
+<div class="container">
+  <div *ngIf="loading">
+  <div class="container d-flex h-100 w-100">
+      <div class="row justify-content-center align-self-center"
+          style="margin:auto;">
+          <i class="pi pi-spin pi-spinner"
+              style="font-size: 5em"></i>
+      </div>
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Fame</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let author of authors">
+      <th scope="row">1</th>
+      <td>{{author.author.name}}</td>
+      <td>{{author.author.email}}</td>
+      <td>{{author.author.fame}}</td>
+      <td>
+        <button
+            type="button"
+            icon="pi pi-trash"
+            class="btn btn-primary"
+            (click)="edit()"
+            >
+            <i class="fas fa-edit"></i>
+          </button>
+        </td>
+      <td>
+      <button
+          type="button"
+          icon="pi pi-trash"
+          class="btn btn-warning"
+          (click)="delete(author)"
+          >
+          <i class="fas fa-trash-alt"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button pButton type="button"
+label="Add"
+class="p-button-success"
+(click)="add()"
+>
+</button>
+</div>
+
+<!-- Edit -->
+<p-dialog header="Title" [(visible)]="displayDialogEdit">
+
+  <form #myForm="ngForm" (ngSubmit)="onSubmitEdit(myForm)">
+    <p>
+        <label>Name:</label>
+        <input type="text"
+         name="name"
+        [(ngModel)]="userToEdit.name">
+    </p>
+
+    <p>
+      <label>Email:</label>
+      <input type="text"
+      name="email"
+      [(ngModel)]="userToEdit.email"
+      >
+  </p>
+    <p>
+        <button type="submit" class="p-button-primary">Save</button>
+    </p>
+</form>
+</p-dialog>
+
+<!-- Add -->
+<p-dialog header="Title" [(visible)]="displayDialogAdd">
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <p>
+        <label>Name:</label>
+        <input type="text" name="name"
+            formControlName="name"
+            [ngClass]="{'invalid': getControl.name.touched && getControl.name.invalid}"
+            >
+    </p>
+    <div *ngIf = "getControl.name.touched && getControl.name.invalid">
+      <span *ngIf="getControl.name.errors?.required" class="text-danger">Name is required</span>
+      <span *ngIf="getControl.name.errors?.name" class="text-danger">Name is not valid</span>
+  </div>
+    <p>
+        <label>Email:</label>
+        <input type="email" name="email"
+        formControlName="email"
+        [ngClass]="{'invalid': getControl.email.touched && getControl.email.invalid}">
+    </p>
+    <p>
+      <label>Fame:</label>
+      <input type="text" name="fame"
+          formControlName="fame"
+          [ngClass]="{'invalid': getControl.fame.touched && getControl.fame.invalid}"
+          >
+  </p>
+    <div *ngIf = "getControl.fame.touched && getControl.fame.invalid">
+      <span *ngIf="getControl.fame.errors?.required" class="text-danger">Email is required</span>
+      <span *ngIf="getControl.fame.errors?.fame" class="text-danger">Email is not valid</span>
+  </div>
+
+
+    <p>
+        <button type="submit" [disabled]="form.invalid" class="p-button-success">Submit</button>
+    </p>
+  </form>
+  </p-dialog>

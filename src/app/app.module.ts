@@ -16,6 +16,8 @@ import {DialogModule} from 'primeng/dialog';
 import { CanvasComponent } from './components/canvas/canvas.component';
 import { BreadcrubComponent } from './components/breadcrub/breadcrub.component';
 import { BooksComponent } from './components/books/books.component';
+import { AuthorComponent } from './components/author/author.component';
+import { GenreComponent } from './components/genre/genre.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { BooksComponent } from './components/books/books.component';
     UserComponent,
     CanvasComponent,
     BreadcrubComponent,
-    BooksComponent
+    BooksComponent,
+    AuthorComponent,
+    GenreComponent
   ],
   imports: [
     BrowserModule,
